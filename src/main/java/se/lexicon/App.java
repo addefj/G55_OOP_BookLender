@@ -16,7 +16,7 @@ public class App {
         Person marco = new Person("Marco", "Polo");
 
         //Creating first book
-        Book mioMinMio = new Book("Mio min Mio", "Astrid Lindgren", johnny);
+        Book mioMinMio = new Book("Mio min Mio", "Astrid Lindgren");
         Book haxanOchLejonet = new Book("Häxan och Lejonet", "C.S.Lewis");
         Book aFeastForCrows = new Book("A Feast for Crows", "George R.R. Martin");
 
@@ -75,7 +75,6 @@ public class App {
         System.out.println(aFeastForCrows.getBookInformation());
 
         System.out.println("----------------------");//new line for readability
-        System.out.println(haxanOchLejonet.getTitle());
 
 
         //todo: add message if book couldn't be borrowed

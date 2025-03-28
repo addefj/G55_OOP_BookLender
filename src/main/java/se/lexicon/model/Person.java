@@ -71,12 +71,12 @@ public class Person {
 
     public String getPersonInformation() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Id: ").append(id).append("\nName: ")
+        sb.append("Id: ").append(id).append(", Name: ")
                 .append(firstName).append(" ").append(lastName)
-                .append("\nBorrowed books: \n");
+                .append(", Borrowed books:");
         for (Book book : books) {
-            sb.append(book.getTitle()).append(", ")
-                    .append(book.getAuthor()).append("\n");
+            sb.append(" ").append(book.getTitle()).append(", ")
+                    .append(book.getAuthor()).append(".");
 
         }
 

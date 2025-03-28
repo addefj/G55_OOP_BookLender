@@ -76,12 +76,11 @@ public class Book {
     //other methods
     public String getBookInformation(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Title: ").append(title).append("\nAuthor: ")
-                .append(author).append("\nId: ").append(id)
-                .append("\nAvailable: ").append(available).append("\n");
+        sb.append("Title: ").append(title).append(", Author: ")
+                .append(author).append(", Available: ").append(available)
+                .append(", Id: ").append(id);
 
         return sb.toString();
     }
-
 
 }
