@@ -28,21 +28,10 @@ public class Book {
         this.available = true; //set book as available
 
         if(borrower == null){
-            setBorrower(borrower);//send borrower from parameter
+            setBorrower(null); //if there's no initial borrower
         } else{
-            borrower.loanBook(this);
+            borrower.loanBook(this); //if there's an initial borrower, use the lone book method to add the book to the person
         }
-
-
-        //add this book to the book list of the borrower
-        /*
-        if (borrower != null) {
-            borrower.loanBook(this);
-        }
-
-         */
-
-
     }
 
     //getters and setters
