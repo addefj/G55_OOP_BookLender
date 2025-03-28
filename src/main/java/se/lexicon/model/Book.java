@@ -19,18 +19,17 @@ public class Book {
 
     //constructor
     public Book(String title, String author){
-        if(title == null || title.isEmpty()) throw new IllegalArgumentException("can't be null or empty");
+        if(title == null || title.trim().isEmpty()) throw new IllegalArgumentException("Title can't be null or empty");
         this.title = title;
-        if(author == null || author.isEmpty()) throw new IllegalArgumentException("can't be null or empty");
+        if(author == null || author.trim().isEmpty()) throw new IllegalArgumentException("Author can't be null or empty");
         this.author = author;
         id = UUID.randomUUID().toString();
-        //available
+        setBorrower(null);
     }
 
     public Book(String title, String author, Person borrower){
         this(title, author);
-        this.borrower = borrower;
-        //available
+        setBorrower(borrower);
     }
 
     //setters and getters
@@ -46,6 +45,10 @@ public class Book {
         return author;
     }
 
+    public Person getBorrower() {
+        return borrower;
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -55,18 +58,22 @@ public class Book {
     }
 
     public void setBorrower(Person borrower) {
-        if (this.borrower != null){
+        if (this.borrower == null){
             this.borrower = borrower;
-            available = borrower == null;
+        }
+        if(borrower == null){
+            this.available = true;
+        } else{
+            this.available = false;
         }
     }
 
     //other methods
     public String getBookInformation(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Id: ").append(id).append(", Title: ")
-                .append(title).append(", Author: ").append(author)
-                .append(", Available: ").append(available);
+        sb.append("Title: ").append(title).append("\nAuthor: ")
+                .append(author).append("\nId: ").append(id)
+                .append("\nAvailable: ").append(available).append("\n");
 
         return sb.toString();
     }
