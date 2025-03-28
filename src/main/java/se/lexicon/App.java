@@ -23,7 +23,7 @@ public class App {
         System.out.println("----------------------");//new line for readability
 
         //get information for all books
-        System.out.println("All books in the library:");
+        System.out.println("Books in the library from the start:");
         System.out.println(mioMinMio.getBookInformation());
         System.out.println(haxanOchLejonet.getBookInformation());
         System.out.println(aFeastForCrows.getBookInformation());
@@ -31,9 +31,17 @@ public class App {
         System.out.println("----------------------");//new line for readability
 
         //Print all persons registered at the library
-        System.out.println("Registered persons");
+        System.out.println("Registered persons from the start");
         System.out.println(karl.getPersonInformation());
         System.out.println(johnny.getPersonInformation());
+        System.out.println(marco.getPersonInformation());
+
+        System.out.println("----------------------");//new line for readability
+
+        //adding a book with an initial borrower
+        Book bamse = new Book("Bamse i Trollskogen", "Rune Andréasson", marco);
+        System.out.println("Adding a new book that already has a borrower(Marco)");
+        System.out.println(bamse.getBookInformation());
         System.out.println(marco.getPersonInformation());
 
         System.out.println("----------------------");//new line for readability
@@ -54,6 +62,19 @@ public class App {
         System.out.println(mioMinMio.getBookInformation());
         System.out.println(haxanOchLejonet.getBookInformation());
         System.out.println(aFeastForCrows.getBookInformation());
+        System.out.println(bamse.getBookInformation());
+
+        System.out.println("----------------------");//new line for readability
+
+        //trying to borrow an already borrowed book
+        System.out.println("Marco trying to borrow an already borrowed book (mio min mio)");
+        marco.loanBook(mioMinMio);
+
+        System.out.println("----------------------");//new line for readability
+
+        //trying to return a book that another person borrowed
+        System.out.println("Johnny trying to return a book that another person (Kalle) borrowed");
+        johnny.returnBook(mioMinMio);
 
         System.out.println("----------------------");//new line for readability
 
@@ -61,7 +82,8 @@ public class App {
         karl.returnBook(mioMinMio);
         karl.returnBook(haxanOchLejonet);
         johnny.returnBook(aFeastForCrows);
-
+        marco.returnBook(bamse);
+        
         System.out.println("Person info after books have been returned");
         System.out.println(karl.getPersonInformation());
         System.out.println(johnny.getPersonInformation());
@@ -73,12 +95,14 @@ public class App {
         System.out.println(mioMinMio.getBookInformation());
         System.out.println(haxanOchLejonet.getBookInformation());
         System.out.println(aFeastForCrows.getBookInformation());
+        System.out.println(bamse.getBookInformation());
 
         System.out.println("----------------------");//new line for readability
 
 
-        //todo: add message if book couldn't be borrowed
-        //todo: add personal info that no book is borrowed
+
+
+
         //todo: add person knowing that they borrowed a book if, book was assigned at constructor
 
 

@@ -18,18 +18,34 @@ public class Book {
 
     //constructor
     public Book(String title, String author){
-        setTitle(title); //call method to set title
-        setAuthor(author); //call method to set author
-        id = UUID.randomUUID().toString(); //set a random generated Id String
-        setBorrower(null); //send null, because no borrower assigned
+        this(title, author, null);
     }
 
     public Book(String title, String author, Person borrower){
-        this(title, author);
-        setBorrower(borrower);//send borrower from parameter
+        setTitle(title); //call method to set title
+        setAuthor(author); //call method to set author
+        this.id = UUID.randomUUID().toString(); //set a random generated Id String
+        this.available = true; //set book as available
+
+        if(borrower == null){
+            setBorrower(borrower);//send borrower from parameter
+        } else{
+            borrower.loanBook(this);
+        }
+
+
+        //add this book to the book list of the borrower
+        /*
+        if (borrower != null) {
+            borrower.loanBook(this);
+        }
+
+         */
+
+
     }
 
-    //setters and getters
+    //getters and setters
     public String getId() { //no real use, could remove
         return id;
     }
@@ -66,10 +82,10 @@ public class Book {
         if (this.borrower == null){ //if there's no borrower yet, set borrower to what's sent from caller
             this.borrower = borrower;
         }
-        if(borrower == null){ //if there's no borrower yet, set available to true, else false
-            this.available = true;
-        } else{
+        if(borrower != null){
             this.available = false;
+        } else {
+            this.available = true;
         }
     }
 
