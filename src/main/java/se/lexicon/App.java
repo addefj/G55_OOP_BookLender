@@ -74,6 +74,9 @@ public class App {
         System.out.println(haxanOchLejonet.getBookInformation());
         System.out.println(aFeastForCrows.getBookInformation());
 
+        System.out.println("----------------------");//new line for readability
+        System.out.println(haxanOchLejonet.getTitle());
+
 
         //todo: add message if book couldn't be borrowed
         //todo: add personal info that no book is borrowed

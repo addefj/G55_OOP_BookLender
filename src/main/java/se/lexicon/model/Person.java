@@ -15,36 +15,38 @@ public class Person {
     private int id;
     private String firstName;
     private String lastName;
-    private List<Book> books = new ArrayList<>();
+    private List<Book> books = new ArrayList<>(); //list to hold information of books borrowed by person
 
 
     //constructor
     public Person(String firstName, String lastName) {
-        setFirstName(firstName);
-        setLastName(lastName);
-        id = getNextId();
+        setFirstName(firstName); //call method to set first name
+        setLastName(lastName); //call method to set last name
+        id = getNextId(); //call method for id
     }
 
     //setters and getters
-    public int getId() {
+    public int getId() { //no real use, could remove
         return id;
     }
 
-    public String getFirstName() {
+    public String getFirstName() { //no real use, could remove
         return firstName;
     }
 
-    public String getLastName() {
+    public String getLastName() { //no real use, could remove
         return lastName;
     }
 
     public void setFirstName(String firstName) {
-        if (firstName == null || firstName.trim().isEmpty()) throw new IllegalArgumentException("First name can't be null or empty");
+        if (firstName == null || firstName.trim().isEmpty())
+            throw new IllegalArgumentException("First name can't be null or empty");
         this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {
-        if (lastName == null || lastName.trim().isEmpty()) throw new IllegalArgumentException("Last name can't be null or empty");
+        if (lastName == null || lastName.trim().isEmpty())
+            throw new IllegalArgumentException("Last name can't be null or empty");
         this.lastName = lastName;
     }
 
